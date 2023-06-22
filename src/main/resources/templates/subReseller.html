@@ -1,0 +1,43 @@
+<main class="content">
+  <div class="container-fluid p-4">
+
+    <h1 class="h3 mb-3">Sub Reseller Page</h1>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title mb-0">Sub-Resellers Details</h5>
+          </div>
+          <div style="overflow:auto" class="card-body">
+            <table class="table table-hover my-0">
+              <thead>
+              <tr>
+                <th>Id</th>
+                <th >Sub-reseller Name</th>
+                <th >Location</th>
+                <th>Contact</th>
+                <th >Products</th>
+                <th>Reseller Name</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr th:each="subreseller:${allSubResellers}">
+                <td th:text="${subreseller.id}"></td>
+                <td th:text="${subreseller.name}"></td>
+                <td th:text="${subreseller.location}"></td>
+                <td th:text="${subreseller.contact}"></td>
+                <td th:text="${subreseller.products}"></td>
+                <td th:text="${subreseller.reseller.name}"></td>
+              </tr>
+
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>

@@ -1,0 +1,78 @@
+<main class="content">
+    <div class="container-fluid p-4">
+        <div class="card-body shadow-lg border-warning m-5 h-50">
+            <div class="alert bg-secondary shadow-lg p-3  rounded m-2" align="center" role="alert">
+                <h3>Register Currency</h3>
+            </div>
+            <form class="row g-3 needs-validation" novalidate action="#" th:action="@{/saveCurrency}" th:object="${currency}"
+                  method="POST">
+                <div class="col-md-6 text-start">
+                    <label for="validationCustom01" class="form-label">Currency Name</label>
+                    <input type="text" th:field="*{currencyName}" placeholder="Enter Currency Name" class="form-control" id="validationCustom01" value="Mark"
+                           required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-6 text-start">
+                    <label for="validationCustom02" class="form-label">Currency Symbol</label>
+                    <input type="text" th:field="*{symbol}" class="form-control" placeholder="Enter Symbol code" id="validationCustom02" value="Otto"
+                           required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="col-md-6 text-start">
+                    <label for="validationCustom03" class="form-label">Currency Code</label>
+                    <input type="text" th:field="*{currencyCode}" placeholder="Enter Code " class="form-control" id="validationCustom03" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid mobile number.
+                    </div>
+                </div>
+                <div class="col-md-6 text-start">
+                    <label for="validationCustom03" class="form-label">Country</label>
+                    <input type="text" th:field="*{country}" placeholder="Enter Country" class="form-control" id="validationCustom04" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid Email.
+                    </div>
+                </div>
+
+
+                <div class="col-8 text-start">
+
+                    <!--    add hidden field to handle to update-->
+                    <input type="hidden" th:field="${currency.id}"/>
+                    <button class="btn btn-outline-success" type="submit">Submit form</button>
+                </div>
+
+
+            </form>
+        </div>
+
+
+    </div>
+</main>
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+'use strict'
+
+// Fetch all the forms we want to apply custom Bootstrap validation styles to
+var forms = document.querySelectorAll('.needs-validation')
+
+// Loop over them and prevent submission
+Array.prototype.slice.call(forms)
+.forEach(function (form) {
+form.addEventListener('submit', function (event) {
+if (!form.checkValidity()) {
+event.preventDefault()
+event.stopPropagation()
+}
+
+form.classList.add('was-validated')
+}, false)
+})
+})()
+
+</script>

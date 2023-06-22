@@ -1,0 +1,56 @@
+<!-- list of users -->
+<main class="content">
+    <div class="container-fluid p-4">
+        <div class="row">
+            <div class="col-12" align="center">
+                <div class=" bg-secondary shadow-lg p-3 mb-5 m-2 rounded heading">
+                    <h3>Currency</h3>
+                </div>
+            </div>
+            <div align="center"><a th:href="@{/register-currency}" class="btn btn-outline-dark btn-rounded  m-3">Add Currency</a></div>
+
+            <div class="col-12">
+                <div style="overflow:auto" class="card flex-fill">
+                    <div class="card-header" align="start">
+                        <h5 class="card-title mb-0">Currency Details</h5>
+                    </div>
+                    <table style="overflow: auto" id="user-table"
+                           class="table table-hover my-0">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Symbol</th>
+                            <th class="d-none d-xl-table-cell">Currency Name</th>
+                            <th class="d-none d-xl-table-cell">Currency Code</th>
+                            <th class="d-none d-xl-table-cell">Country</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="currency:${allCurrencyList}">
+                            <td th:text="${currency.id}"></td>
+                            <td class="fs-3" th:utext="${currency.symbol}"></td>
+                            <td class="d-none d-xl-table-cell" th:text="${currency.currencyName}"></td>
+                            <td class="d-none d-xl-table-cell"  th:text="${currency.currencyCode}"></td>
+                            <td class="d-none d-xl-table-cell" th:text="${currency.country}"></td>
+
+                            <td class="text-center">
+                                <a th:href="@{/currency/{id}(id=${currency.id})} " class="m-1">
+                                    View
+                                </a>
+                                <a th:href="@{/register-currency/{id}(id=${currency.id})}"  class="m-1">
+                                    Edit
+                                </a>
+                                <a th:href="@{/deleteCurrency/{id}(id=${currency.id})}"  class="m-1">
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>

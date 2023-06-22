@@ -1,0 +1,39 @@
+<main class="content" xmlns="http://www.w3.org/1999/html">
+    <div class="container-fluid p-4">
+        <div class="col d-flex flex-column " align="center">
+            <div class="card flex-fill">
+                <div class="card-header" align="start">
+
+                    <h5 class="card-title mb-0">Merchants</h5>
+                </div>
+                <table class="table table-hover my-0">
+                    <thead>
+                    <tr>
+                        <th class="d-none d-xl-table-cell">Gateway Name</th>
+                        <th>User First Name</th>
+                        <th class="d-none d-xl-table-cell">User Last Name</th>
+                        <th class="d-none d-xl-table-cell">Mobile NO</th>
+                        <th>Email</th>
+                        <th>DOB</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="provider:${allProviderUsers}">
+                        <td class="d-none d-xl-table-cell" th:text="${provider.gatewayName}"></td>
+                        <td th:text="${provider.users.firstName}"></td>
+                        <td class="d-none d-xl-table-cell" th:text="${provider.users.lastName}"></td>
+                        <td class="d-none d-xl-table-cell" th:text="${provider.users.mobileNo}"></td>
+                        <td th:text="${provider.users.email}"></td>
+                        <td th:text="${provider.users.dateOfBirth}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div><a th:href="@{/providers}" class="btn btn-outline-dark btn-rounded btn-sm m-3">go back</a></div>
+        <div>
+            <img src="https://i.pinimg.com/736x/7d/c0/9c/7dc09c90633ae972968c0026ea5c2646.jpg">
+        </div>
+    </div>
+    </div>
+</main>

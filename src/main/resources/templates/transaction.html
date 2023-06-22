@@ -1,0 +1,64 @@
+<!-- list of transactions-->
+<main class="content">
+    <div class="container-fluid p-4">
+        <div class="row">
+            <h1 class="h3 mb-3">Transaction</h1>
+            <div class=" bg-white shadow-lg p-3  ">
+                <nav class="nav-element">
+                    <div class="container-fluid ">
+                        <div class="row">
+                            <div class=" col-sm-2"><a class="a-element" href="/transactions/payments">Payments</a></div>
+                            <div class=" col-sm-2"><a class="a-element" href="/transactions/refunds">Refunds</a></div>
+                            <div class=" col-sm-2"><a class="a-element" href="/transactions/chargeback">Chargeback</a>
+                            </div>
+                            <div class=" col-sm-2"><a class="a-element" href="/transactions/recurring">Recurring
+                                Payment</a></div>
+                            <div class=" col-sm-2"><a class="a-element" href="/transactions/disputes">Disputes</a></div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-12 ">
+                <div th:replace="${templateTs}">this is template file changing</div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!--<script>-->
+<!--    var marker=document.querySelector('#marker');-->
+<!--    var item=document.querySelectorAll('nav a');-->
+
+
+<!--    function indicator(e){-->
+<!--        marker.style.left=e.offsetLeft+"px";-->
+<!--        marker.style.width=e.offsetWidth+"px";-->
+<!--    }-->
+<!--    item.forEach(link => {-->
+<!--        link.addEventListener('click',(e)=>{-->
+<!--            indicator(e.target);-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+
+<script>
+ document.addEventListener("DOMContentLoaded", function() {
+      var currentPath = window.location.pathname;
+      var links = document.querySelectorAll(".a-element");
+
+      links.forEach(function(link) {
+        var linkPath = link.getAttribute("href");
+
+        if (currentPath.startsWith(linkPath)) {
+          link.classList.add("active");
+           link.style.color = '#000';
+
+<!--           var parentEl=link.closest('.a-element');-->
+<!--           if(parentEl){-->
+<!--            parentEl.classList.add("active");-->
+<!--           }-->
+        }
+      });
+    });
+</script>
+

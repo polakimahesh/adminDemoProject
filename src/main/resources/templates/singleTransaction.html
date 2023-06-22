@@ -1,0 +1,36 @@
+<main class="content">
+  <div class="container-fluid p-4"  th:object="${singleTransaction}">
+    <div  style="display:flex">
+
+     <h1 class="h2 mb-3 text-success m-3">Transaction Successful!</h1>
+      <div class="stat text-primary m-3"> <i class="align-middle" data-feather="check"></i></div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6">
+        <img class="card-img-top" src="/img/payment.jpg" alt="Card image cap">
+        </div>
+        <div class="col-12 col-md-6">
+
+          <div class="card" style="width: 18rem;">
+            <img src="/img/moneyCard.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Transaction Details</h5>
+<!--              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+            </div>
+              <ul class="list-group list-group-flush">
+                  <li class="list-group-item text-center fs-2">&#x20b9;
+                      <span class="text-center fs-2" th:text="*{amount}"></span>
+                  </li>
+                  <li class="list-group-item">Name :     <span class="text-muted" th:text="*{userId.firstName}"></span></li>
+                  <li class="list-group-item">From Acc :   <span class="text-muted" th:text="*{fromAccountNo}"></span></li>
+                  <li class="list-group-item">To Acc :     <span class="text-muted" th:text="*{toAccountNo}"></span></li>
+                  <li class="list-group-item">Time :       <span class="text-muted" th:text="*{transactionTime}"></span></li>
+                  <li class="list-group-item">Description : <span class="text-muted" th:text="*{transactionDescription}"></span></li>
+                  <li class="list-group-item">Amount :      <span class="badge bg-success" th:text="*{amount}"></span> <span><i class="bi bi-check2-circle text-success fs-4"></i></span></li>
+              </ul>
+          </div>
+          </div>
+    </div>
+    </div>
+
+</main>

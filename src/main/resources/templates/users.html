@@ -1,0 +1,58 @@
+<!-- list of users -->
+<main class="content">
+    <div class="container-fluid p-4">
+        <div class="row">
+            <div class="col-12" align="center">
+                <div class=" bg-secondary shadow-lg p-3 mb-5 m-2 rounded heading">
+                    <h3>Merchants</h3>
+                </div>
+            </div>
+            <div align="center"><a th:href="@{/register-user}" class="btn btn-outline-dark btn-rounded  m-3">Add
+                Merchant</a></div>
+
+            <div class="col-12">
+                <div style="overflow:auto" class="card flex-fill">
+                    <div class="card-header" align="start">
+                        <h5 class="card-title mb-0">Merchants Details</h5>
+                    </div>
+                    <table style="overflow: auto" id="user-table"
+                           class="table table-hover my-0">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>First Name</th>
+                            <th class="d-none d-xl-table-cell">Last Name</th>
+                            <th class="d-none d-xl-table-cell">Mobile No</th>
+                            <th class="d-none d-xl-table-cell">Email</th>
+                            <th class="d-none d-xl-table-cell">DOB</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="user:${alluserlist}">
+                            <td th:text="${user.id}"></td>
+                            <td th:text="${user.firstName}"></td>
+                            <td class="d-none d-xl-table-cell" th:text="${user.lastName}"></td>
+                            <td class="d-none d-xl-table-cell" th:text="${user.mobileNo}"></td>
+                            <td class="d-none d-xl-table-cell" th:text="${user.email}"></td>
+                            <td class="d-none d-xl-table-cell" th:text="${user.dateOfBirth}"></td>
+                            <td style="display:flex; justify-content:center">
+                                <a th:href="@{/users/{id}(id=${user.id})}">
+                                    <button type="button" class="btn btn-outline-info m-1">View</button>
+                                </a>
+                                <a th:href="@{/register-user/{id}(id=${user.id})}">
+                                    <button type="button" class="btn btn-outline-success m-1">Edit</button>
+                                </a>
+                                <a th:href="@{/delete/{id}(id=${user.id})}">
+                                    <button type="button" class="btn btn-outline-danger m-1">Delete</button>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
