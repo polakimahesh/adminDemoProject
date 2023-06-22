@@ -39,11 +39,11 @@ public class PaymentsController {
         LocalDate start1 = LocalDate.parse(start, dateTimeFormatter);
         LocalDate end1 = LocalDate.parse(end, dateTimeFormatter);
         final LocalDateTime of = LocalDateTime.of(start1, LocalTime.MIN);
-        int id1 = 0;
+        int id2 = 0;
         if (!id.isEmpty()) {
-            id1 = Integer.parseInt(id);
+            id2 = Integer.parseInt(id);
         }
-        List<Payments> payments = paymentsService.getFilteredPayments(id1, method, of, LocalDateTime.of(end1, LocalTime.MIN));
+        List<Payments> payments = paymentsService.getFilteredPayments(id2, method, of, LocalDateTime.of(end1, LocalTime.MIN));
         model.addAttribute("allPaymentTransaction",payments);
         model.addAttribute("templateTs","payments.html");
         model.addAttribute("title","Payments");
